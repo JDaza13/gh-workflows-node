@@ -6,7 +6,7 @@ on:
       - dev
 env:
   MONGODB_DB_NAME: gha-demo
-jobs:  
+jobs:
   test:
     environment: testing
     env:
@@ -15,6 +15,8 @@ jobs:
       MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
       PORT: 8080
     runs-on: ubuntu-latest
+    container:
+      image: node:16
     steps:
       - name: Get Code
         uses: actions/checkout@v3
